@@ -4,9 +4,15 @@ void main() {
   runApp( counter());
 }
 
-class counter extends StatelessWidget {
-  int teamApoints = 0;
-  int teamBpoints = 0;
+class counter extends StatefulWidget {
+  @override
+  State<counter> createState() => _counterState();
+}
+
+class _counterState extends State<counter> {
+  int teamAPoints = 0;
+
+  int teamBPoints = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +20,17 @@ class counter extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Points counter', style:
+          title:const Text('Points counter', style:
           TextStyle(
             color: Colors.white
             ),
           ),
-          backgroundColor: Color(0xff3b2e62),
+          backgroundColor:const Color(0xff3b2e62),
 
         ),
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Row(
@@ -32,23 +38,27 @@ class counter extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Text('Team A', style: TextStyle(
+                    const Text('Team A', style: TextStyle(
                       fontSize: 42
                      ),
                     ),
                     Text(
-                      '$teamApoints'
-                      , style: TextStyle(
-                        fontSize: 200
+                      '$teamAPoints'
+                      , style:const TextStyle(
+                        fontSize: 161
                       ),
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff3b2e62),
-                          maximumSize: Size(150, 60)
+                          backgroundColor:const Color(0xff3b2e62),
+                          maximumSize:const Size(150, 60)
                         ),
-                        onPressed: (){},
-                        child: Text('Add 1 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamAPoints++;
+                          });
+                        },
+                        child: const Text('Add 1 point',style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.bold
@@ -58,12 +68,16 @@ class counter extends StatelessWidget {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff3b2e62),
-                            maximumSize: Size(150, 60)
+                          backgroundColor:const Color(0xff3b2e62),
+                            maximumSize:const Size(150, 60)
 
                         ),
-                        onPressed: (){},
-                        child: Text('Add 2 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamAPoints += 2;
+                          });
+                        },
+                        child:const Text('Add 2 point',style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.bold
@@ -73,11 +87,15 @@ class counter extends StatelessWidget {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff3b2e62),
-                            maximumSize: Size(150, 60)
+                          backgroundColor:const Color(0xff3b2e62),
+                            maximumSize:const Size(150, 60)
                         ),
-                        onPressed: (){},
-                        child: Text('Add 3 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamAPoints += 3;
+                          });
+                        },
+                        child:const Text('Add 3 point',style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.bold
@@ -93,21 +111,25 @@ class counter extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Text('Team B', style: TextStyle(
+                    const Text('Team B', style: TextStyle(
                         fontSize: 42
                     ),
                     ),
-                    Text('$teamBpoints', style: TextStyle(
-                        fontSize: 200
+                    Text('$teamBPoints', style:const TextStyle(
+                        fontSize: 160
                     ),
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff3b2e62),
-                            maximumSize: Size(150, 60)
+                            backgroundColor:const Color(0xff3b2e62),
+                            maximumSize:const Size(150, 60)
                         ),
-                        onPressed: (){},
-                        child: Text('Add 1 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamBPoints++;
+                          });
+                        },
+                        child:const Text('Add 1 point',style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold
@@ -117,12 +139,16 @@ class counter extends StatelessWidget {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff3b2e62),
-                            maximumSize: Size(150, 60)
+                            backgroundColor:const Color(0xff3b2e62),
+                            maximumSize:const Size(150, 60)
 
                         ),
-                        onPressed: (){},
-                        child: Text('Add 2 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamBPoints += 2;
+                          });
+                        },
+                        child:const Text('Add 2 point',style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold
@@ -132,11 +158,15 @@ class counter extends StatelessWidget {
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff3b2e62),
-                            maximumSize: Size(150, 60)
+                            backgroundColor:const Color(0xff3b2e62),
+                            maximumSize:const Size(150, 60)
                         ),
-                        onPressed: (){},
-                        child: Text('Add 3 point',style: TextStyle(
+                        onPressed: (){
+                          setState(() {
+                            teamBPoints += 3;
+                          });
+                        },
+                        child:const Text('Add 3 point',style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold
@@ -149,11 +179,16 @@ class counter extends StatelessWidget {
             const Spacer(),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff3b2e62),
-                    maximumSize: Size(150, 60)
+                    backgroundColor:const Color(0xff3b2e62),
+                    maximumSize:const Size(150, 60)
                 ),
-                onPressed: (){},
-                child: Text('Reset',style: TextStyle(
+                onPressed: (){
+                  setState(() {
+                    teamAPoints = 0;
+                    teamBPoints = 0;
+                  });
+                },
+                child:const Text('Reset',style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold
